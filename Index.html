@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill.ai - Innovative Learning Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #3B82F6, #8B5CF6);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #EDF2F7 0%, #E2E8F0 100%);
+        }
+        #canvas-container {
+            width: 100%;
+            height: 300px;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+        @media (max-width: 768px) {
+            #canvas-container {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 shadow-sm">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold gradient-text">Skill.ai</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#courses" class="text-gray-600 hover:text-blue-600">Courses</a>
+                    <a href="#features" class="text-gray-600 hover:text-blue-600">Features</a>
+                    <a href="#testimonials" class="text-gray-600 hover:text-blue-600">Testimonials</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600">Contact</a>
+                </div>
+                <button class="md:hidden" onclick="toggleMenu()">
+                    <i class="bi bi-list text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white p-4">
+            <a href="#courses" class="block py-2 text-gray-600">Courses</a>
+            <a href="#features" class="block py-2 text-gray-600">Features</a>
+            <a href="#testimonials" class="block py-2 text-gray-600">Testimonials</a>
+            <a href="#contact" class="block py-2 text-gray-600">Contact</a>
+        </div>
+    </nav>
+
+   <!-- Hero Section -->
+<section class="hero-gradient min-h-screen pt-20 relative">
+    <div class="absolute inset-0 z-[0]">
+        <video autoplay loop muted class="w-full h-full object-cover">
+            <source src="assets/38660-418027274_medium.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="container mx-auto px-4 py-16 relative z-10">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    Learn and Grow with <span class="gradient-text">AI-Powered</span> Education
+                </h1>
+                <p class="text-gray-600 text-lg mb-8">
+                    Transform your skills with cutting-edge courses designed for the future of work.
+                </p>
+                <button class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition" 
+        onclick="window.location.href='https://forms.gle/W4SRbvt9DmBea4uF8'">
+                 Register
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Popular Courses</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Course Card 1 -->
+                <div class="course-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="assets/courses.png" alt="AI Course" class="w-full h-54 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Artificial Intelligence Fundamentals</h3>
+                        <p class="text-gray-600 mb-4">Learn the basics of AI and machine learning</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold">999 Rs</span>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 2 -->
+                <div class="course-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="assets/courses.png" alt="Data Science Course" class="w-full h-54 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Data Science Masterclass</h3>
+                        <p class="text-gray-600 mb-4">Master data analysis and visualization</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold">1499 Rs</span>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 3 -->
+                <div class="course-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="assets/courses.png" alt="Web Development Course" class="w-full h-54 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Full-Stack Development</h3>
+                        <p class="text-gray-600 mb-4">Build modern web applications</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold">1999 Rs</span>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Why Choose Skill.ai?</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <i class="bi bi-laptop text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Learn Anywhere</h3>
+                    <p class="text-gray-600">Access courses on any device, anytime</p>
+                </div>
+                <div class="text-center p-6">
+                    <i class="bi bi-graph-up text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Track Progress</h3>
+                    <p class="text-gray-600">Monitor your learning journey</p>
+                </div>
+                <div class="text-center p-6">
+                    <i class="bi bi-people text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Expert Support</h3>
+                    <p class="text-gray-600">Get help from industry experts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">What Our Students Say</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <p class="text-gray-600 mb-4">"The AI course completely transformed my career path. The practical approach and real-world projects were invaluable."</p>
+                    <div class="flex items-center">
+                        <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="Student" class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Divesh Maurya</h4>
+                            <p class="text-gray-600">Support Engineer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <p class="text-gray-600 mb-4">"The quality of instruction and the supportive community made learning complex topics much easier than I expected."</p>
+                    <div class="flex items-center">
+                        <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="Student" class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Aditya Yadav</h4>
+                            <p class="text-gray-600">Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+<section id="contact" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Get in Touch</h2>
+        <div class="max-w-2xl mx-auto">
+            <form action="https://formspree.io/f/mgvebkvo" method="POST" class="space-y-6">     <div>
+                    <label class="block text-gray-700 mb-2">Name</label>
+                    <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-600 transition duration-200">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">Email</label>
+                    <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-600 transition duration-200">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">Message</label>
+                    <textarea name="message" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-600 transition duration-200" rows="4"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-200">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Skill.ai</h3>
+                    <p class="text-gray-400">Empowering learners worldwide with AI-driven education.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#courses" class="text-gray-400 hover:text-white">Courses</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white">Features</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white">Testimonials</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61567937930089" class="text-gray-400 hover:text-white"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="bi bi-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/skill-ai/posts/?feedView=all" class="text-gray-400 hover:text-white"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://www.instagram.com/_skillai_/?utm_source=ig_web_button_share_sheet" class="text-gray-400 hover:text-white"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Newsletter</h4>
+                    <form class="flex">
+                        <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded-l-lg w-full">
+                        <button class="bg-blue-600 px-4 py-2 rounded-r-lg hover:bg-blue-700">
+                            <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Skill.ai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // 3D Animation
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        const container = document.getElementById('canvas-container');
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+        container.appendChild(renderer.domElement);
+
+        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+        const material = new THREE.MeshBasicMaterial({ 
+            color: 0x3B82F6,
+            wireframe: true
+        });
+        const torusKnot = new THREE.Mesh(geometry, material);
+        scene.add(torusKnot);
+
+        camera.position.z = 30;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            torusKnot.rotation.x += 0.01;
+            torusKnot.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Responsive 3D canvas
+        window.addEventListener('resize', () => {
+            const newWidth = container.offsetWidth;
+            const newHeight = container.offsetHeight;
+            camera.aspect = newWidth / newHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(newWidth, newHeight);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
